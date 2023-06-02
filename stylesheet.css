@@ -1,16 +1,30 @@
 h1, h3 {
   color: black;
   text-align: center;
-  margin: 20px; }
+  margin: 20px;
+	font-family: 'Century Gothic';
+}
+
+h1, h2, h3, p, table, ul, a {
+  font-family: 'Century Gothic';
+  color: black;
+}
 
 h3 {
   font-style: italic; }
 
 p {
-  text-align: center;
+  text-align: left;
   color: black;
-  margin-left: 20%;
-  margin-right: 20%; }
+  /* margin-left: 20%; */
+  /* margin-right: 20%;  */
+  font-family: 'Century Gothic';
+}
+
+ul {
+  list-style-type: none;
+  color: black;
+}
 
 table {
   border: 1px solid black;

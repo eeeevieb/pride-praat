@@ -1,6 +1,15 @@
 .btn-group {
     margin-bottom: 40px;
     width: 100%;
+    background-color: rgb(255, 255, 118);
+}
+
+#button {
+    background-color: rgb(255, 255, 118);
+    border: none;
+    font-family: 'Century Gothic';
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 #logo {
@@ -9,6 +18,12 @@
     margin-right: auto;
     margin-bottom: 20px;
     width: 30%;
+}
+
+#home {
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .center {
@@ -22,4 +37,26 @@
 
 #right {
     float: left;
+}
+
+#ep {
+    background-color: white;
+    width: 700px;
+    height: 110px;
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow-x: hidden; 
+    overflow-y: scroll;
+    word-wrap: break-word;
+}
+
+#descr {
+    text-align: left;
+}
+
+.limit p {
+    width: 680px; 
 }

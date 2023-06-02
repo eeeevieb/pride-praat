@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pride Praat</title>
+        <title>Afleveringen</title>
+        <link rel="icon" href="PRIDE PRAAT ECHT ECHT.png" type="image/icon type">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -21,61 +22,14 @@
         </style>
     </head>
     <body>
+        <h1 id="home" onclick="window.location.href='index.html';">Pride Praat</h1>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-warning" onclick="window.location.href='index.html';">Home</button>
-            <button type="button" class="btn btn-warning" onclick="window.location.href='about.html';">About</button>
-            <button type="button" class="btn btn-warning" onclick="window.location.href='episodes.html';">Episodes</button>
-            <button type="button" class="btn btn-warning" onclick="window.location.href='contact.html';">Contact</button>
+            <button type="button" id="button" class="btn btn-warning" onclick="window.location.href='episodes.html';">Afleveringen</button>
+            <button type="button" id="button" class="btn btn-warning" onclick="window.location.href='about.html';">Over ons</button>
+            <button type="button" id="button" class="btn btn-warning" onclick="window.location.href='contact.html';">Contact</button>
+            <button type="button" id="button" class="btn btn-warning" onclick="window.location.href='links.html';">Handige links</button>
         </div>
-        <h1>EPISODES</h1>
-        <br/> <br/>
-        <p>
-        Segmenten die elke week terugkomen:
-        </p>
-        <table class="center">
-            <thead>
-                <th>Segment</th>
-                <th>Waar gaat het over?</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Transitie update</td>
-                    <td>Elliot vertelt over zijn transitie</td>
-                </tr>
-                <tr>
-                    <td>Labels</td>
-                    <td>Een (micro)label wordt uitgelegd</td>
-                </tr>
-                <tr>
-                    <td>Queer history feitje</td>
-                    <td>Elliot vertelt een feitje/nieuwtje over de LGBTQIA+-community</td>
-                </tr>
-                <tr>
-                    <td>Eva komt uit</td>
-                    <td>Eva vertelt over haar ervaringen met uit de kast komen</td>
-                </tr>
-            </tbody>
-        </table>
-        <br/> <br/>
-        <p><strong>Alle afleveringen op een rij</strong></p>
-        <ol>
-            <li>Wat is wat?</li>
-            <li>Hoe weet je wat je bent?</li>
-            <li>De maatschappij en acceptatie</li>
-            <li>Uit de kast komen: deel 1</li>
-            <li>Uit de kast komen: deel 2</li>
-            <li>Verschillende soorten aantrekkingskracht</li>
-            <li>Types (met Eveline)</li>
-            <li>Porno en fetishes</li>
-            <li>Ace vs. Allo</li>
-            <li>Genderidentiteit</li>
-            <li>Romantische vs. platinische aantrekkingskracht: deel 1</li>
-            <li>Romantische vs. platonische aantrekkingskracht: deel 2</li>
-            <li>Queer cultuur</li>
-            <li>Heteronormativiteit</li>
-            <li>Onzekerheden</li>
-        </ol>
-        </p>
+        <ul id="episodes"></ul>
         <div class="container">
             <div class="row">
               <div class="col-5">
@@ -85,7 +39,7 @@
                 <i class="fab fa-instagram fa-2x" onclick="window.location.href='https://www.instagram.com/pridepraatpod/'"></i>
               </div>
               <div class="col-1">
-                <img id="anchor" src="achor2.png" width="35" alt="Icon Anchor" onclick="window.location.href='https://anchor.fm/elliot-en-eva'">
+                <img id="anchor" src="achor2.png" width="35" alt="Icon Anchor" onclick="window.location.href='https://podcasters.spotify.com/pod/show/merijn-en-eva'">
               </div>
               <div class="col-5">
                 <i class="far fa-envelope fa-2x" id="right" onclick="window.location.href='mailto:pridepraatpod@gmail.com'"></i>
@@ -93,4 +47,45 @@
             </div>
           </div>
     </body>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+            console.log("aloha")
+            const pprss = 'https://anchor.fm/s/4acf5ec8/podcast/rss'
+
+        fetch(pprss)
+            .then(response => response.text())
+            .then(xmlString => {
+                const parser = new DOMParser()
+                const dom = parser.parseFromString(xmlString, 'application/xml')
+                return dom
+            })
+            .then(dom => {
+                const items = dom.querySelectorAll('item')
+                console.log(items[0])
+
+                const ul = document.querySelector('ul#episodes')
+
+                items.forEach(item => {
+                    const div = document.createElement('div')
+                    div.setAttribute('id','ep');
+                    // const li = document.createElement('li')
+                    const a = document.createElement('a')
+                    const p = document.createElement('p')
+                    a.textContent = item.querySelector('title').textContent
+                    // li.href = item.querySelector('link').textContent
+                    a.setAttribute('href',item.querySelector('link').textContent);
+                    var description = new String(item.querySelector('description').textContent)
+                    console.log(description, 'hoi')
+                    description = description.replace('<p>', '').replace('</p>', '')
+                    p.textContent = description
+                    p.setAttribute('id','descr')
+                    p.setAttribute('class','limit');
+                    // div.append(li)
+                    div.append(a)
+                    div.append(p)
+                    ul.append(div)
+                })
+            })
+        });
+      </script>
 </html>
