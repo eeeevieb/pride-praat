@@ -1,0 +1,57 @@
+$color: black;
+
+%header {
+    color: $color;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    @extend %header;
+  }
+
+h3 {
+    @extend %header;
+    font-style: italic;
+}
+
+p {
+    text-align: center;
+    color: $color;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+table {
+    border: 1px solid $color;
+    border-collapse: collapse;
+    color:$color;
+}
+
+td, th {
+    border: 1px solid $color;
+    padding: 5px;
+}
+
+ol {
+    text-align: center;
+    color: $color;
+}
+
+
+.container {
+
+    margin: 40px;
+    text-align: center;
+
+    i {
+        color: $color;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+}
