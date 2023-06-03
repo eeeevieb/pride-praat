@@ -41,11 +41,38 @@
 
 #ep {
     background-color: white;
-    width: 700px;
-    height: 110px;
+    width: 680px;
+    /* height: 110px; */
     margin-top: 10px;
     text-align: left;
-    padding: 10px;
+    padding-top: 10px;;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+    border-radius: 25px;
+    font-size: larger;
+}
+
+#descr {
+    text-align: left;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 25px;
+}
+
+.limit p {
+    width: 680px; 
+}
+
+#description {
+    background-color: white;
+    width: 680px;
+    height: 50px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    text-align: left;
+    /* padding-bottom: 15px; */
+    padding-right: 15px;
     text-overflow: ellipsis;
     white-space: wrap;
     overflow-x: hidden; 
@@ -53,10 +80,22 @@
     word-wrap: break-word;
 }
 
-#descr {
-    text-align: left;
+#hoi {
+    border-radius: 25px;
+    background-color: white;
+    width: 700px;
+    margin-bottom: 20px; 
+    padding-left: 15px;
+    padding-bottom: 1px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
 }
 
-.limit p {
-    width: 680px; 
+#audio-ep {
+    width: max-content;
+}
+
+audio {
+    width: max-content;
 }
